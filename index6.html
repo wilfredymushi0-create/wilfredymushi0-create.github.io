@@ -1,27 +1,138 @@
 <!DOCTYPE html>
-<html>
-<body> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Gallery</title>
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #fff8f0, #ffe9d6);
+    color:#333;
+    padding:30px;
+}
+
+/* HEADER */
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+h1 img{
+    width:320px;
+    max-width:100%;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+
+h1 img:hover{
+    transform:scale(1.05);
+}
+
+/* FEATURED IMAGE */
+figure{
+    background:white;
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    text-align:center;
+}
+
+figure img{
+    width:100%;
+    max-width:700px;
+    border-radius:18px;
+    transition:0.4s;
+}
+
+figure img:hover{
+    transform:scale(1.03);
+}
+
+figcaption{
+    margin-top:15px;
+    font-size:18px;
+    color:#666;
+    line-height:1.6;
+}
+
+/* TITLE */
+h4{
+    text-align:center;
+    margin:50px 0 25px;
+    font-size:28px;
+    color:#d35400;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:0.4s ease;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* FOOTER LOOK */
+body::after{
+    content:"Made with Love 🍰";
+    display:block;
+    text-align:center;
+    margin-top:50px;
+    font-size:18px;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
 <h1>
-<img src="https://private-user-images.githubusercontent.com/267944973/579726505-ca28316e-87b4-4a0d-8ee3-ce74c3355003.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzY0MTA3NTgsIm5iZiI6MTc3NjQxMDQ1OCwicGF0aCI6Ii8yNjc5NDQ5NzMvNTc5NzI2NTA1LWNhMjgzMTZlLTg3YjQtNGEwZC04ZWUzLWNlNzRjMzM1NTAwMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwNDE3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDQxN1QwNzIwNThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZWJkODQ4NzhmMjdiODE4NGRmM2EwNjBjMjVhODY1YmYwZWRmYjI1ZWNjMmJiZmZjM2VkZjE0MGZiNmMzOTNmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.3XdnEFsuEFpoiSIfik27Ji-bPR_m8Q9BNyGXCMYWFJE"
-alt="From A to Zucchini" />
+<img src="https://private-user-images.githubusercontent.com/267944973/579726505-ca28316e-87b4-4a0d-8ee3-ce74c3355003.png" alt="From A to Zucchini">
 </h1>
+
 <figure>
-<img src="https://private-user-images.githubusercontent.com/267944973/579728005-23686ad8-f139-4adf-a644-8bc90a9360f7.webp?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzY0MTA4ODksIm5iZiI6MTc3NjQxMDU4OSwicGF0aCI6Ii8yNjc5NDQ5NzMvNTc5NzI4MDA1LTIzNjg2YWQ4LWYxMzktNGFkZi1hNjQ0LThiYzkwYTkzNjBmNy53ZWJwP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDQxNyUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA0MTdUMDcyMzA5WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZTRkODliMTdhYzhkODVmNTk2ZWIxMzViYjdjMDFmZjQzZWNlOWY2MjRhZWMwMDM3NDY3ZGM2ODE1NmI1MTc3MSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGd2VicCJ9.N1il0sui0MzwWkLDmM0y-5Id8JSEMjX0gjhZcdeFaUY"  alt="Chocolate Islands"
-title="Chocolate Islands Individual Cakes" />
-<p>
+<img src="https://private-user-images.githubusercontent.com/267944973/579728005-23686ad8-f139-4adf-a644-8bc90a9360f7.webp" alt="Chocolate Islands">
 <figcaption>
-This recipe for individual chocolate cakes is so simple and so delectable! 
-</figcaption> 
-</p> 
-</figure> 
-<h4>More Recipes:</h4> 
-<p>
-<img src="https://private-user-images.githubusercontent.com/267944973/579728677-96c79dbc-2a4c-4da8-b3ac-a3bf0e9abc2c.jpeg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzY0MTEwNDgsIm5iZiI6MTc3NjQxMDc0OCwicGF0aCI6Ii8yNjc5NDQ5NzMvNTc5NzI4Njc3LTk2Yzc5ZGJjLTJhNGMtNGRhOC1iM2FjLWEzYmYwZTlhYmMyYy5qcGVnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDQxNyUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA0MTdUMDcyNTQ4WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9NjFhM2FhZGViMWI1NmU5N2I5Y2Y1ZjBkYmEyMjU4YTQ2MmY5NTExM2YwY2Y5OGU1NDQ5MjIzMGY2ODFhM2YyMCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.qwRqm0JrrVU0oe_TLFcgLqzPm18ClXSPipPU7h1SdpU" alt="Lemon Posset"
-title="Lemon Posset Dessert" />
-<img src="https://private-user-images.githubusercontent.com/267944973/579729663-b898dc70-7a0c-44d6-acc8-860f43e55568.jpeg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzY0MTExMjksIm5iZiI6MTc3NjQxMDgyOSwicGF0aCI6Ii8yNjc5NDQ5NzMvNTc5NzI5NjYzLWI4OThkYzcwLTdhMGMtNDRkNi1hY2M4LTg2MGY0M2U1NTU2OC5qcGVnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDQxNyUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA0MTdUMDcyNzA5WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YWU4ZWM4ODZjOThiMjE0Mjc3NGY5MTg3ZWEyZjAzNGEwZTExMzI3Y2Y2ZDlmNjVlZGI4ZDc3NjRhZjFhOGExOSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.wUCE3YfKqTQ7ka4HXNEDQioZffAuTHEpegh_VT49994" alt="Roasted Brussel Sprouts"
-title="Roasted Brussel Sprouts Side Dish" /> 
-<img src="https://private-user-images.githubusercontent.com/267944973/579730025-f5160ada-6c56-49ce-b5d4-c95362e55088.jpeg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzY0MTEyMTEsIm5iZiI6MTc3NjQxMDkxMSwicGF0aCI6Ii8yNjc5NDQ5NzMvNTc5NzMwMDI1LWY1MTYwYWRhLTZjNTYtNDljZS1iNWQ0LWM5NTM2MmU1NTA4OC5qcGVnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDQxNyUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA0MTdUMDcyODMxWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YWE0NjNkMjE5NDFiMDdhOTZiYTdkMDcxNWY2MTE4MTUyMTUyNThhODQ0OGFjNjgxNjZjZDY1MjVlZjNmYjY5MyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGanBlZyJ9.Jy8u0EBUTZNByvgczd7Xx3Gh-nQxyylkxJMJ4LA7kUY"  alt="Zucchini Cake"
-title="Zucchini Cake No Frosting" />
-</p>
+This recipe for individual chocolate cakes is so simple and so delectable!
+</figcaption>
+</figure>
+
+<h4>More Recipes:</h4>
+
+<div class="gallery">
+
+<img src="https://private-user-images.githubusercontent.com/267944973/579728677-96c79dbc-2a4c-4da8-b3ac-a3bf0e9abc2c.jpeg" alt="Lemon Posset">
+
+<img src="https://private-user-images.githubusercontent.com/267944973/579729663-b898dc70-7a0c-44d6-acc8-860f43e55568.jpeg" alt="Roasted Brussel Sprouts">
+
+<img src="https://private-user-images.githubusercontent.com/267944973/579730025-f5160ada-6c56-49ce-b5d4-c95362e55088.jpeg" alt="Zucchini Cake">
+
+</div>
+
 </body>
 </html>
